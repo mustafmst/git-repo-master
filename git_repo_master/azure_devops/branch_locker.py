@@ -1,7 +1,7 @@
 from git_repo_master.azure_devops.request import AzureGitRequest
 
 
-class BranchLocker():
+class BranchLocker:
     def __init__(self, organization, project, token):
         self.__request = AzureGitRequest() \
             .with_organization(organization) \
