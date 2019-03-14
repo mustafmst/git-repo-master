@@ -26,3 +26,19 @@ class PullRequestCreator:
             }) \
             .execute()
 
+
+def create_pull_request(args):
+    creator = PullRequestCreator(
+        args.organization,
+        args.project,
+        args.token
+    )
+    for repo in args.repositories:
+        creator.create_pull_request(
+            repo,
+            args.source,
+            args.target,
+            args.title,
+            args.description
+        )
+
