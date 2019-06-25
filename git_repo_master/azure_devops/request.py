@@ -67,8 +67,9 @@ class AzureGitRequest:
             body=json.dumps(self.__body).encode()
         )
         response = conn.getresponse()
-        if response.status is not 200:
-            print("Error during requers. Response status: {}".format(response.status))
+        if response.status not in [200, 201]:
+            print("Error during request. Response status: {}".format(response.status))
+            print("Error during request. Response body: {}".format(response.read()))
         else:
             response_json = json.loads(response.read().decode())
             print(json.dumps(response_json, indent=4, sort_keys=True))
