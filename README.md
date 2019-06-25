@@ -1,7 +1,7 @@
 # git-repo-master
 Simple application to manage your Azure DevOps git repository
 
-## installation
+## Installation
 
 ``` bash
 git clone https://github.com/mustafmst/git-repo-master.git
