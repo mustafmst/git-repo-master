@@ -1,8 +1,17 @@
 # git-repo-master
 Simple application to manage your Azure DevOps git repository
 
+## installation
+
+``` bash
+git clone https://github.com/mustafmst/git-repo-master.git
+python git-repo-master/setup.py install
+```
+
+## Usage
+
 ```bash
-$ python grm.py -h
+$ grm -h
 
 usage: grm.py [-h] -organization ORGANIZATION -project PROJECT -repository
               REPOSITORY [REPOSITORY ...] -token TOKEN -branch BRANCH -action

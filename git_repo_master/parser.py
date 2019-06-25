@@ -19,15 +19,3 @@ def startup_parser():
 
     args = parser.parse_args()
     return args
-
-
-def main():
-    args = startup_parser()
-    if args.action in ACTIONS:
-        ACTIONS[args.action](args)
-    else:
-        print('Nothing to do.')
-
-
-if __name__ == '__main__':
-    main()
