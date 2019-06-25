@@ -33,7 +33,7 @@ def create_pull_request(args):
         args.project,
         args.token
     )
-    for repo in args.repositories:
+    for repo in args.repository:
         creator.create_pull_request(
             repo,
             args.source,
