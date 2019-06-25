@@ -7,7 +7,7 @@ class PullRequestCreator:
             .with_organization(organization) \
             .with_project(project) \
             .with_resource('pullrequests') \
-            .with_personaltoken(token) \
+            .with_token(token) \
             .with_method('POST')
 
     def create_pull_request(self,

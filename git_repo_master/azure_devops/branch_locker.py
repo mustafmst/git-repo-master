@@ -7,13 +7,13 @@ class BranchLocker:
             .with_organization(organization) \
             .with_project(project) \
             .with_resource('refs') \
-            .with_personaltoken(token) \
+            .with_token(token) \
             .with_method('PATCH')
 
     def update_branch(self, repository, branch_name='master', is_locked=True):
         self.__request \
             .with_repository(repository) \
-            .with_querry('filter=heads/{}'.format(branch_name)) \
+            .with_query('filter=heads/{}'.format(branch_name)) \
             .with_body({
                 'isLocked': is_locked
             }) \

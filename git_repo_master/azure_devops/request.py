@@ -1,6 +1,7 @@
 import base64
 import json
 from http import client
+from urllib.parse import quote
 
 
 class AzureGitRequest:
@@ -66,20 +67,23 @@ class AzureGitRequest:
             body=json.dumps(self.__body).encode()
         )
         response = conn.getresponse()
-        response_json = json.loads(response.read().decode())
-        print(json.dumps(response_json, indent=4, sort_keys=True))
-        return response_json
+        if response.status is not 200:
+            print("Error during requers. Response status: {}".format(response.status))
+        else:
+            response_json = json.loads(response.read().decode())
+            print(json.dumps(response_json, indent=4, sort_keys=True))
+            return response_json
 
     def with_organization(self, organization):
-        self.__organization = organization
+        self.__organization = quote(organization)
         return self
 
     def with_project(self, project):
-        self.__project = project
+        self.__project = quote(project)
         return self
 
     def with_repository(self, repository):
-        self.__repository = repository
+        self.__repository = quote(repository)
         return self
 
     def with_method(self, method):
